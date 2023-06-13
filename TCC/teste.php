@@ -39,6 +39,8 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="?page=perfil">Perfil</a></li>
               <li><a class="dropdown-item" href="?page=pedidos">Meus Pedidos</a></li>
+              <li><a class="dropdown-item" href="cadastrar_produto.php"> Cadastrar Produto</a></li>
+
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -51,6 +53,7 @@
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
+              
             </form>
             <p id="endereco">Rua Exemplo, 123 - Cidade</p>
             <button class="btn btn-outline-primary" onclick="alterarEndereco()">Alterar Endereço</button>
@@ -86,7 +89,6 @@
                   echo "<p class='product-description'>{$row['descricao']}</p>";
                   echo "<p class='product-price'>Preço: R$ {$row['preco']}</p>";
                   echo "<button class='botao-comprar'>Comprar</button>";
-                  echo '<button><a href=tela_compra.php?produto='.['id_produto'].' class="btn btn-success">COMPRAR</a></button>';
                   echo "</div>";
                 }
 
