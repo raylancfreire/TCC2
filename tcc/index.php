@@ -1,31 +1,29 @@
 <?php
     $includeNavbar = true;
     if ($includeNavbar) {
-        include("navbar.php"); // Inclui a navbar
+        include("navbar.php");
     }
-    ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+?>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <div class="catalog">
-                    <form method="GET" action="resultado_busca.php">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="nome_produto" placeholder="Digite o nome do produto">
-                            <button class="btn btn-primary" type="submit">Buscar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> 
-    </div>
+  <?php if (isset($_SESSION['email'])) { ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+          title: 'Bem-vindo!',
+          text: 'Olá, <?php echo $_SESSION['email']; ?>. Bem-vindo de volta!',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+      });
+    </script>
+  <?php } ?>
+  
+  <!-- Resto do seu código HTML -->
 </body>
-</html>
+
