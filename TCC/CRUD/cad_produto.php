@@ -42,7 +42,7 @@ if (isset($_FILES['imagem'])) {
         $cad_prod->bindParam(':path', $path);
         $cad_prod->execute();
 
-        echo "<p>Arquivo enviado com sucesso. <a target=\"_blank\" href=\"../upload/$novoNomeDoArquivo.$extensao\">Clique aqui</a> para visualizar o arquivo.</p>";
+        echo "<p>Arquivo enviado com sucesso. <a \" href=\"../catalogo_luan.php\">Clique aqui</a> para visualizar o arquivo.</p>";
     } else {
         echo "<p>Falha ao enviar o arquivo.</p>";
     }
