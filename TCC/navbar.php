@@ -22,7 +22,7 @@ require("conn.php");
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="catalogo.php" style="margin-right: 70px; border: 1.5px solid black; border-radius: 5px;" >Catálogo</a>
+            <a class="nav-link" aria-current="page" href="catalogo_luan.php" style="margin-right: 70px; border: 1.5px solid black; border-radius: 5px;" >Catálogo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pedidos.php" style="margin-right: 70px; width: 190px; border: 1.5px solid black; border-radius: 5px;">Meus Pedidos</a>
