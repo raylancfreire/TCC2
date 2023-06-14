@@ -1,4 +1,3 @@
-
 <?php
     include("conn.php");
     $email = $_POST['email'];
@@ -17,14 +16,18 @@
         </script>";
     } else {
         $sessao = $rowTabela[0];
+        
 
         if(!isset($_SESSION)) {
         session_start();
         }
         $_SESSION['id_usuario'] = $sessao['id_usuario'];
         $_SESSION['email'] = $sessao['email'];
+        $_SESSION['endereco'] = $sessao['endereco'];
+
+        
     
-        header("Location: teste.php");
+        header("Location: navbar.php");
         }
     
         $empresas = $pdo->prepare('SELECT * FROM empresas where email=:email

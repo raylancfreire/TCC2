@@ -1,9 +1,14 @@
 /* Estilos para a navbar */
-.navbar{
+  .navbar{
     background-color: #b7d6f5; /* Cor de fundo da navbar */
     font-family: 'Roboto', sans-serif; /* Fonte da navbar */
-    font-size: 20px; /* Tamanho da fonte */
+    font-size: 27px; /* Tamanho da fonte */
   }
+
+  .navbar-nav{
+    margin-right: 70px; /* Espaçamento entre os itens */
+  }
+
   
   .navbar-brand {
     font-weight: bold; /* Estilo da fonte para o nome da marca */
@@ -51,6 +56,14 @@
   .btn {
     font-family: 'Roboto', sans-serif; /* Fonte do botão */
     font-size: 14px; /* Tamanho da fonte do botão */
+  }
+
+  .logo {
+    background-color: rgb(135, 208, 241);
+    margin-right: 80px;
+    margin-left: 40px; 
+    border: 2px solid black;
+    border-radius: 5px;
   }
 
   

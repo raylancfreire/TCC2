@@ -17,6 +17,9 @@
             <label for="">CPF:</label>
             <input type="text" name="cpf" id="cpf" maxlength="14" class="">
 
+            <label for="">Endereço:</label>
+            <input type="endereco" name="endereco" id="" class="">
+
             <label for="">Email:</label>
             <input type="email" name="email" id="" class="">
 

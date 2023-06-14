@@ -1,6 +1,10 @@
-</html>
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    $includeNavbar = true;
+    if ($includeNavbar) {
+        include("navbar.php"); // Inclui a navbar
+    }
+    ?>
+<html lang="pt-br">
 <head>
   <link rel="stylesheet" href="catalogo.css">
     <meta charset="UTF-8">
@@ -25,20 +29,20 @@
     </div>
 </body>
 </html>
+
 <?php
     include("conn.php");
     // Verifica se o formulário de busca foi enviado
     if (isset($_GET['nome_produto'])) {
       $nomeProduto = $_GET['nome_produto'];
-  
+      
       // Consulta os dados da tabela "produtos" com base no nome do produto
       $sql = "SELECT path, nome_produto, descricao, preco FROM produtos WHERE nome_produto LIKE '%$nomeProduto%'";
       $result = $pdo->query($sql);
-  
+      
       // Exibe os produtos em forma de catálogo
       if ($result->rowCount() > 0) {
           foreach ($result as $row) {
-              // Exibe os detalhes do produto
               echo "<div class='product'>";
               echo "<img class='product-image' src='upload/{$row['path']}' alt='Imagem'>";
               echo "<h3 class='product-name'>{$row['nome_produto']}</h3>";
@@ -51,6 +55,3 @@
           echo "<p>Nenhum produto encontrado.</p>";
       }
   }  
-  
-?>
-
