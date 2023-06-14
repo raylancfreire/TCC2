@@ -25,17 +25,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="?page=catalogo">Catálogo</a>
+            <a class="nav-link" aria-current="page" href="catalogo.php">Catálogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=pedidos">Meus Pedidos</a>
+            <a class="nav-link" href="pedidos.php">Meus Pedidos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menu
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="?page=cadprod"> Cadastrar Produto</a></li>
+              <li><a class="dropdown-item" href="cadastrar_produto.php"> Cadastrar Produto</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -54,20 +54,6 @@
   </nav>
 </body>
 </html>
-  <?php
-    switch(@$_REQUEST["page"]){
-      case "catalogo":
-    include("catalogo.php");
-      break;
-    case"cadprod":
-      include("cadastrar_produto.php");
-    break;
-    case"index":
-        include("index.php");
-      break;
-    default:
-    }
-    ?>
       </div>
     </div>
   </div>
@@ -75,3 +61,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+
