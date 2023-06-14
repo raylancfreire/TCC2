@@ -11,7 +11,7 @@
         <label for="">Login</label>
         <input type="email" name="email" id="">
         <label for="">Senha</label>
-        <input type="senha" name="senha" id="">
+        <input type="password" name="senha" id="">
         <input type="submit" value="Login">
     </form>
 </body>
