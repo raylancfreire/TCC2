@@ -43,6 +43,10 @@ require("conn.php");
         <div class="container">
           <div class="d-flex justify-content-end ms-auto" style="margin-top: 22px;">
                 <p id="endereco"><?php echo $_SESSION['endereco']; ?></p>
+              <li class="nav-link dropdown">
+              <a class="nav-link dropdown-toggle" href="navbar.php" role="button" aria-expanded="false">
+            </a>
+            </li>
           </div>
         </div>
       </div>
