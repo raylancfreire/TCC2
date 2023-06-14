@@ -51,35 +51,36 @@ body {
     justify-content: space-between;
 }
 
-.login-button {
-    display: flex;
-    align-items: center;
+.btn-cadastrar {
+    background-color: #8ba9c7; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remover borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Mudar o cursor para indicar que é clicável */
+    transition: all 0.3s ease; /* Transição suave para as mudanças */
 }
 
-.login-button button {
-    border: none;
-    background-color: #b7d6f5;
-    padding: 0.4rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-cadastrar:hover {
+    transform: scale(1.1); /* Aumentar o tamanho ao passar o mouse */
+    background-color: #7390ad; /* Mudar a cor de fundo ao passar o mouse */
 }
 
-.login-button button:hover {
-    background-color: #b7d6f5;
+/* Estilos para o link "Já possui uma conta? Entrar" */
+.link-entrar {
+    text-decoration: none; /* Remover sublinhado */
+    color: #8ba9c7; /* Cor do texto */
 }
 
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #fff;
+.link-entrar:hover {
+    text-decoration: underline; /* Adicionar sublinhado ao passar o mouse */
 }
 
 .form-header h1::after {
     content: '';
     display: block;
-    width: 5rem;
+    width: 42rem;
     height: 0.3rem;
-    background-color: #b7d6f5;
+    background-color: #8ba9c7;
     margin: 0 auto;
     position: absolute;
     border-radius: 10px;
@@ -88,7 +89,7 @@ body {
 .input-group {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 1rem 0;
 }
 
@@ -126,49 +127,6 @@ body {
     color: #000000be;
 }
 
-.gender-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.62rem;
-    padding: 0 .5rem;
-}
-
-.gender-input {
-    display: flex;
-    align-items: center;
-}
-
-.gender-input input {
-    margin-right: 0.35rem;
-}
-
-.gender-input label {
-    font-size: 0.81rem;
-    font-weight: 600;
-    color: #000000c0;
-}
-
-.continue-button button {
-    width: 100%;
-    margin-top: 2.5rem;
-    border: none;
-    background-color: #3a33c2;
-    padding: 0.62rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.continue-button button:hover {
-    background-color: #3a33c2;
-}
-
-.continue-button button a {
-    text-decoration: none;
-    font-size: 0.93rem;
-    font-weight: 500;
-    color: #fff;
-}
-
 @media screen and (max-width: 1330px) {
     .form-image {
         display: none;
@@ -193,17 +151,5 @@ body {
         max-height: 10rem;
         overflow-y: scroll;
         flex-wrap: nowrap;
-    }
-    .gender-inputs {
-        margin-top: 2rem;
-    }
-    .gender-group {
-        flex-direction: column;
-    }
-    .gender-title h6 {
-        margin: 0;
-    }
-    .gender-input {
-        margin-top: 0.5rem;
     }
 }
