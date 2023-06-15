@@ -37,3 +37,16 @@ senha varchar (40) not null
 
 drop table empresas;
 select* from empresas;
+
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_produto INT,
+    quantidade INT,
+    valor_total DECIMAL(9, 2),
+    endereco_entrega VARCHAR(255),
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status_pedido VARCHAR(20),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario),
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto)
+);

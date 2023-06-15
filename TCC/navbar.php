@@ -1,6 +1,5 @@
 <?php
 require("protected_usuario.php");
-
 require("conn.php");
 ?>
 
