@@ -1,0 +1,24 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 9999;
+    text-align: center;
+    opacity: 5;
+    animation: fadeOut 6s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.success-popup {
+    background-color: #c9f6d6;
+    border-color: #5bc366;
+}
