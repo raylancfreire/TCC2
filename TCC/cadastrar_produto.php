@@ -1,4 +1,5 @@
 <?php
+    require("protected_empresa.php");
     $includeNavbar = true;
     if ($includeNavbar) {
         include("navbar.php"); // Inclui a navbar
@@ -44,6 +45,7 @@
             <div class="form-group">
                 <label for="imagem">Imagem</label>
                 <input type="file" id="imagem" name="imagem" required>
+                <input type="hidden" name="empresa" value="<?php echo $_SESSION['nome']; ?>">
             </div>
             <div class="form-group">
                 <button type="submit">Enviar</button>

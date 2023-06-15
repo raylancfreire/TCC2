@@ -15,7 +15,7 @@ require("conn.php");
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: #b7d6f5;">
 <div class="container-fluid">
-        <img src="LOGO2.png" ahref="login.php" class="logo" >
+  <img src="LOGO2.png" class="logo" alt="Logo" onclick="window.location.href='catalogo_luan.php';" style="cursor: pointer;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

@@ -5,17 +5,18 @@
 }
 
 .product {
-    width: 200px;
+    width: 220px;
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-}
-
+    margin-bottom: 60px; /* Aumente o valor conforme necessário */
+  }
+  
 .product-image {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin-bottom: 10px;
 }
 
@@ -23,6 +24,8 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+    color: black;
+    text-decoration: none;
 }
 
 .product-description {
@@ -42,4 +45,32 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 40px;
 }
+.btn-verde {
+    margin-bottom: 60px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn-verde:hover {
+    background-color: #218838;
+  }
+
+  /* Estilo para botão azul */
+  .btn-azul {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn-azul:hover {
+    background-color: #0069d9;
+  }

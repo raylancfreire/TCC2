@@ -5,6 +5,7 @@ if ($includeNavbar) {
   include("navbar.php"); // Inclui a navbar
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +15,47 @@ if ($includeNavbar) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Index</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="catalogo.css">
 </head>
+
+<style>
+  /* Estilo para botão verde */
+  .btn-verde {
+    margin-bottom: 60px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .btn-verde:hover {
+    background-color: #218838;
+  }
+
+  /* Estilo para botão azul */
+  .btn-azul {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn-azul:hover {
+    background-color: #0069d9;
+  }
+</style>
 
 <body>
   <div class="container mt-5">
@@ -49,13 +90,15 @@ if ($includeNavbar) {
               // Exibe os produtos em forma de catálogo
               if ($result->rowCount() > 0) {
                 foreach ($result as $row) {
-                  echo "<div class='product'>";
-                  echo "<img class='product-image' src='upload/{$row['path']}' alt='Imagem'>";
-                  echo "<h3 class='product-name'>{$row['nome_produto']}</h3>";
-                  echo "<p class='product-description'>{$row['descricao']}</p>";
-                  echo "<p class='product-price'>Preço: R$ {$row['preco']}</p>";
-                  echo "<button class='botao-comprar'>Comprar</button>";
-                  echo "</div>";
+            ?>
+                  <div class="product">
+                    <img class="product-image" src="upload/<?php echo $row['path']; ?>" alt="Imagem">
+                    <h3 class="product-name"><?php echo $row['nome_produto']; ?></h3>
+                    <p class="product-description"><?php echo $row['descricao']; ?></p>
+                    <p class="product-price">Preço: R$ <?php echo $row['preco']; ?></p>
+                    <button class="botao-comprar">Comprar</button>
+                  </div>
+                <?php
                 }
               } else {
                 echo "<p>Nenhum produto encontrado.</p>";
@@ -69,17 +112,27 @@ if ($includeNavbar) {
             // Exibe os produtos em forma de catálogo
             if ($result->rowCount() > 0) {
               foreach ($result as $row) {
-                echo '<div class="col-md-3 mb-4">'; // Colunas com tamanho "col-md-3"
-                echo '<div class="product">';
-                echo '<img class="product-image" src="upload/' . $row['path'] . '" alt="Imagem do produto">';
-                echo '<h3 class="product-name">' . $row['nome_produto'] . '</h3>';
-                echo '<p class="product-description">' . $row['descricao'] . '</p>';
-                echo '<p class="product-price">Preço: R$ ' . $row['preco'] . '</p>';
-                echo '<a href="tela_compra.php?comprar=' . $row['id_produto'] . '" class="btn-verde">COMPRAR</a>';
-                echo '<br>';
-                echo '<a href="#" class="btn-azul add-to-cart" data-produto="' . $row['id_produto'] . '" ">ADICIONAR AO CARRINHO</a>';
-                echo '</div>';
-                echo '</div>';
+                ?>
+                <div class="col-md-3 mb-4">
+                  <div class="product">
+                    <a href="tela_produto.php?comprar=<?php echo $row['id_produto']; ?>">
+                      <img class="product-image" src="upload/<?php echo $row['path']; ?>" alt="Imagem do produto">
+                    </a>
+                    <h3 class="product-name">
+                      <a href="tela_produto.php?comprar=<?php echo $row['id_produto']; ?>">
+                        <?php echo $row['nome_produto']; ?>
+                      </a>
+                    </h3>
+                    <p class="product-description"><?php echo $row['descricao']; ?></p>
+                    <p class="product-price">Preço: R$ <?php echo $row['preco']; ?></p>
+                    <br>
+                    <a href="tela_produto.php?comprar=<?php echo $row['id_produto']; ?>" class="btn-verde">COMPRAR</a>
+                    <br>
+                    <br>
+                    <a href="#" class="btn-azul add-to-cart" data-produto="<?php echo $row['id_produto']; ?>">ADD CARRINHO</a>
+                  </div>
+                </div>
+            <?php
               }
             } else {
               echo '<div class="col">';
@@ -87,29 +140,17 @@ if ($includeNavbar) {
               echo '</div>';
             }
             ?>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-  </script>
-  
   <script>
-    
-    // Captura o evento de clique no botão "ADICIONAR AO CARRINHO"
     document.addEventListener('click', function(event) {
-      // Verifica se o botão clicado possui a classe "add-to-cart"
       if (event.target.classList.contains('add-to-cart')) {
-        event.preventDefault(); // Impede o comportamento padrão de redirecionamento do link
-
-        // Obtém o valor do atributo "data-produto" do botão clicado
+        event.preventDefault();
         var produtoId = event.target.getAttribute('data-produto');
-
-        // Envia o parâmetro para o script de manipulação do carrinho (carrinho.php) usando AJAX
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState === 4 && this.status === 200) {

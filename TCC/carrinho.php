@@ -25,19 +25,25 @@ if ($includeNavbar) {
         <div class="catalog">
           <div class="row">
             <?php
-           // Inicia a sessão
+
+            if (!isset($_SESSION['id_usuario'])) {
+              die('Você não pode acessar esta página porque não está logado.<p><a href="login.php">Entrar</a></p>');
+            }
 
             require("conn.php");
 
+            $idEmpresa = $_SESSION['id_usuario'];
+
             // Função para adicionar um produto ao carrinho
-            function adicionarAoCarrinho($id_produto, $quantidade, $nome_produto, $preco)
+            function adicionarAoCarrinho($id_usuario, $id_produto, $quantidade, $nome_produto, $preco)
             {
               // Verifica se o carrinho já existe na sessão
-              if (isset($_SESSION['carrinho'])) {
-                $carrinho = $_SESSION['carrinho'];
+              if (isset($_SESSION['carrinho'][$id_usuario])) {
+                $carrinho = $_SESSION['carrinho'][$id_usuario];
               } else {
                 $carrinho = array();
               }
+
               // Verifica se o produto já está no carrinho
               if (isset($carrinho[$id_produto])) {
                 // Atualiza a quantidade do produto
@@ -45,7 +51,7 @@ if ($includeNavbar) {
               } else {
                 // Adiciona o produto ao carrinho
                 $carrinho[$id_produto] = array(
-                  'id_produto'=>$id_produto,
+                  'id_produto' => $id_produto,
                   'quantidade' => $quantidade,
                   'nome_produto' => $nome_produto,
                   'preco' => $preco
@@ -53,7 +59,7 @@ if ($includeNavbar) {
               }
 
               // Atualiza o carrinho na sessão
-              $_SESSION['carrinho'] = $carrinho;
+              $_SESSION['carrinho'][$id_usuario] = $carrinho;
             }
 
             // Verifica se foi solicitada a adição ao carrinho
@@ -71,7 +77,7 @@ if ($includeNavbar) {
               // Verifica se o produto existe
               if ($produto) {
                 $quantidade = 1; // Quantidade padrão ao adicionar ao carrinho
-                adicionarAoCarrinho($id_produto, $quantidade, $produto['nome_produto'], $produto['preco']);
+                adicionarAoCarrinho($idEmpresa, $id_produto, $quantidade, $produto['nome_produto'], $produto['preco']);
                 echo "O produto foi adicionado ao carrinho";
               } else {
                 echo 'Produto não encontrado.';
@@ -89,7 +95,7 @@ if ($includeNavbar) {
         <h2>Carrinho de Compras</h2>
         <?php
         // Verifica se o carrinho está vazio
-        if (!empty($_SESSION['carrinho'])) {
+        if (!empty($_SESSION['carrinho'][$idEmpresa])) {
           echo '<table class="table">';
           echo '<thead>';
           echo '<tr>';
@@ -99,22 +105,31 @@ if ($includeNavbar) {
           echo '</tr>';
           echo '</thead>';
           echo '<tbody>';
-          foreach ($_SESSION['carrinho'] as $id_produto => $item) {
+          foreach ($_SESSION['carrinho'][$idEmpresa] as $id_produto => $item) {
             echo '<tr>';
-          
-             '<td>' . $item['id_produto'] . '</td>';
-            echo '<td>' . $item['nome_produto'] . '</td>';
-            echo '<td>R$ ' . $item['preco'] . '</td>';
-            echo '<td>' . $item['quantidade'] . '</td>';
-            echo '<td><a href=CRUD\realizar_emprestimo.php?emprestimo='.$item['id_produto'].' class="btn btn-primary">REALIZAR EMPRESTIMO</a></td>';
+
+            // Verifica se as chaves estão definidas no array $item
+            if (isset($item['id_produto']) && isset($item['nome_produto']) && isset($item['preco']) && isset($item['quantidade'])) {
+              echo '<td>' . $item['nome_produto'] . '</td>';
+              echo '<td>R$ ' . $item['preco'] . '</td>';
+              echo '<td>' . $item['quantidade'] . '</td>';
+              echo '<td><a href="CRUD/realizar_emprestimo.php?emprestimo=' . $item['id_produto'] . '" class="btn btn-primary">COMPRAR</a></td>';
+            } else {
+              // Alguma chave está faltando no array $item, exiba uma mensagem de erro ou faça o tratamento adequado
+              echo '<td colspan="5">Informações do produto indisponíveis</td>';
+            }
+
             echo '</tr>';
           }
           echo '</tbody>';
           echo '</table>';
           // Calcula o total da compra
           $total = 0;
-          foreach ($_SESSION['carrinho'] as $id_produto => $item) {
-            $total += $item['preco'] * $item['quantidade'];
+          foreach ($_SESSION['carrinho'][$idEmpresa] as $id_produto => $item) {
+            // Verifica se as chaves estão definidas no array $item antes de acessá-las
+            if (isset($item['preco']) && isset($item['quantidade'])) {
+              $total += $item['preco'] * $item['quantidade'];
+            }
           }
           echo '<p>Total: R$ ' . $total . '</p>';
         } else {
@@ -125,7 +140,5 @@ if ($includeNavbar) {
     </div>
   </div>
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>

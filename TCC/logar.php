@@ -27,7 +27,7 @@
 
         
     
-        header("Location: navbar.php");
+        header("Location: catalogo_luan.php");
         }
     
         $empresas = $pdo->prepare('SELECT * FROM empresas where email=:email
