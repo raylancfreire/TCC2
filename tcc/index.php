@@ -41,7 +41,8 @@ if ($includeNavbar) {
             session_start();
             if (isset($_SESSION['login_status'])) {
                 if ($_SESSION['login_status'] === 'success') {
-                    echo "showPopup('Bem-vindo!', 'success-popup');";
+                    $nome_usuario = $_SESSION['nome_usuario'];
+                    echo "showPopup('Bem-vindo, $nome_usuario!', 'success-popup');";
                 } elseif ($_SESSION['login_status'] === 'error') {
                     echo "showPopup('Usuário e/ou senha inválidos!', '');";
                 }
