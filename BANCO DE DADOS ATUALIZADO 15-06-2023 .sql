@@ -1,0 +1,42 @@
+use tcc;
+
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome_usuario VARCHAR(255) NOT NULL,
+    cpf varchar (60),
+    endereco VARCHAR (255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+insert into usuarios (email,senha) values ('luan@gmail.com', '01');
+drop table usuarios;
+select * from usuarios;
+
+CREATE TABLE produtos (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome_produto VARCHAR(255),
+    descricao VARCHAR(255),
+    marca VARCHAR(200),
+    categoria VARCHAR(255),
+    preco DECIMAL(9, 2),
+    quantidade_produto INT,
+    imagem longblob,
+    path varchar(255),
+    empresa varchar(255),
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+drop table produtos;
+SELECT * from produtos;
+
+create table empresas (
+id_empresa int primary key auto_increment,
+nome varchar (255) not null,
+endereco varchar (255) unique not null,
+telefone varchar (25) unique not null,
+cnpj varchar (20) unique not null,
+email varchar (255) unique not null,
+senha varchar (40) not null
+);
+
+drop table empresas;
+select* from empresas;
