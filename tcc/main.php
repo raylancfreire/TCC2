@@ -1,8 +1,8 @@
 <?php
-$includeNavbar = true;
-if ($includeNavbar) {
-    include("navbar.php"); // Inclui a navbar
-}
+    $includeNavbar = true;
+    if ($includeNavbar) {
+        include("navbar.php"); // Inclui a navbar
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ if ($includeNavbar) {
                     setTimeout(function() {
                         popup.remove();
                     }, 1000);
-                }, 3000);
+                }, 8000);
             }
         });
     </script>
