@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Cadastro de Usuários</title>
     <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/login2.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
             <form action="" method="post" id="formulario">
                 <div class="form-header">
                     <div class="title">
-                        <h1>Cadastro de Usuários</h1>
+                        <h1>Cadastro de Cliente</h1>
                     </div>
                 </div>
 

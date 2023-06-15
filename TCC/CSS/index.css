@@ -78,7 +78,7 @@ body {
 .form-header h1::after {
     content: '';
     display: block;
-    width: 19.4rem;
+    width: 42rem;
     height: 0.3rem;
     background-color: #8ba9c7;
     margin: 0 auto;
@@ -126,7 +126,6 @@ body {
 .input-box input::placeholder {
     color: #000000be;
 }
-
 
 @media screen and (max-width: 1330px) {
     .form-image {
@@ -181,4 +180,63 @@ body {
     .form {
         padding: 2rem;
     }
+}
+
+/* Novas regras para a tela de cadastro de usuário e empresa */
+
+
+
+.form-split-container {
+    display: flex;
+}
+
+.form-split-container .form-split {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem;
+}
+
+
+.form-split-container .form-split.left {
+    background-color: #b18214d7;
+    color: #000;
+}
+
+.form-split-container .form-split.right {
+    background-color: #3372b1;
+    color: #fff;
+}
+
+.form-split-container .form-split h2 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-split-container .form-split .btn-entrar {
+    background-color: #8ba9c7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.form-split-container .form-split .btn-entrar:hover {
+    transform: scale(1.1);
+    background-color: #7390ad;
+}
+
+.form-split-container .form-split .link-cadastrar {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.form-split-container .form-split .link-cadastrar:hover {
+    text-decoration: underline;
 }

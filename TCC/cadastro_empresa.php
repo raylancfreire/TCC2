@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="input-box">
-                        <label for="telefone">Telefone:</label>
+                        <label for="telefone">Celular:</label>
                         <input type="text" id="telefone" name="telefone" placeholder="(XX) X XXXX-XXXX" maxlength="16" required>
                     </div>
 
