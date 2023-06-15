@@ -1,24 +1,39 @@
 .popup {
     position: fixed;
-    top: 50%;
+    top: 5.5%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-    padding: 20px;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     text-align: center;
-    opacity: 5;
-    animation: fadeOut 6s forwards;
+    opacity: 0;
+    animation: fadeInUp 3s forwards, fadeOut 1s 6s forwards;
+    height: 50px;
+    max-width: 300px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(200px) scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .success-popup {
-    background-color: #c9f6d6;
+    background-color: whitesmoke;
     border-color: #5bc366;
 }
