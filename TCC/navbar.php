@@ -88,7 +88,12 @@ $conn->close();
           </li>
         </ul>
         <div class="carrinho">
-          <a href="carrinho.php">Carrinho</a>
+        <?php if ($tipoUsuario !== 'empresa') : ?>
+            <div class="d-flex justify-content-end ms-auto" style="margin-top: 22px;">
+              <p><a href="carrinho.php"> <img src="carrinho3.png" alt=""></a></p>
+            </div>
+          <?php endif; ?>
+  
         </div>
         <div class="container">
           <?php if ($tipoUsuario !== 'empresa') : ?>

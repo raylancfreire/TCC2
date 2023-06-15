@@ -1,5 +1,5 @@
 <?php
-    require("protected_empresa.php");
+    require("protected.php");
     $includeNavbar = true;
     if ($includeNavbar) {
         include("navbar.php"); // Inclui a navbar
