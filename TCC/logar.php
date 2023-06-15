@@ -49,8 +49,9 @@
             }
             $_SESSION['id_empresa'] = $sessao['id_empresa'];
             $_SESSION['email'] = $sessao['email'];
+            $_SESSION['telefone'] = $sessao['telefone'];
         
-            header("Location: tela_empresa.php");
+            header("Location: tela_inicial_empresa.php");
             }
     
 ?>

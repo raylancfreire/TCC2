@@ -1,7 +1,7 @@
 /* Estilos para a navbar */
   .navbar{
     background-color: #b7d6f5; /* Cor de fundo da navbar */
-    font-family: 'Roboto', sans-serif; /* Fonte da navbar */
+    font-family: 'Inter', sans-serif; /* Fonte da navbar */
     font-size: 27px; /* Tamanho da fonte */
   }
 
@@ -12,7 +12,7 @@
   
   .navbar-brand {
     font-weight: bold; /* Estilo da fonte para o nome da marca */
-    font-family: 'Roboto', sans-serif; /* Fonte da navbar */
+    font-family: 'Inter', sans-serif; /* Fonte da navbar */
     font-size: 30px; /* Tamanho da fonte */
     color: #dc3545; /* Cor do texto da marca */
     border: 1.5px;
@@ -30,14 +30,24 @@
   
   .nav-link {
     color: black; /* Cor do texto dos links da navbar */
+    margin-right: 70px; 
+    border: 1.5px solid black; 
+    border-radius: 5px;
+    background-color: #a1def7;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
   }
   
   .nav-link:hover {
     color: #2c4acf; /* Cor do texto dos links da navbar ao passar o mouse */
+    transform: scale(1.1);
+    background-color: #7cbad3;
   }
   
   .dropdown-menu {
-    background-color: #f8f9fa; /* Cor de fundo do menu dropdown */
+    background-color: white; /* Cor de fundo do menu dropdown */
   }
   
   .dropdown-item {
@@ -54,7 +64,7 @@
   }
   
   .btn {
-    font-family: 'Roboto', sans-serif; /* Fonte do botão */
+    font-family: 'Inter', sans-serif; /* Fonte do botão */
     font-size: 14px; /* Tamanho da fonte do botão */
   }
 
