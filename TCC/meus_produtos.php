@@ -38,12 +38,20 @@ $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <a href="tela_produto.php?comprar=<?php echo $produto['id_produto']; ?>">
         <img class="product-image" src="upload/<?php echo $produto['path']; ?>" alt="Imagem do produto">
     </a>
-    <h2><?php echo $produto['nome_produto']; ?></h2>
-    <p><?php echo $produto['descricao']; ?></p>
-    <p><?php echo $produto['marca']; ?></p>
-    <p><?php echo $produto['preco']; ?></p>
+    <h2>Nome: <?php echo $produto['nome_produto']; ?></h2>
+    <p>Descrição: <?php echo $produto['descricao']; ?></p>
+    <p>Marca: <?php echo $produto['marca']; ?></p>
+    <p>Quantidade: <?php echo $produto['quantidade_produto']; ?></p>
+    <p>Preço: R$<?php echo $produto['preco']; ?></p>
+
     <!-- Outras informações do produto -->
+
+    <a href="atualizar_produto.php?id=<?php echo $produto['id_produto']; ?>" class="btn btn-primary">Atualizar Produto</a>
+        <br>
+        <br>
 </div>
+
+
     <?php endforeach; ?>
 </div>
     
