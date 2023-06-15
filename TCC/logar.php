@@ -1,56 +1,37 @@
 <?php
-    include("conn.php");
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+include("conn.php");
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-    $usuarios = $pdo->prepare('SELECT * FROM usuarios where email=:email
-    AND senha=:senha');
-    $usuarios->execute(array(':email'=>$email,':senha'=>$senha));
+$usuariosQuery = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email AND senha = :senha');
+$usuariosQuery->execute(array(':email' => $email, ':senha' => $senha));
+$usuariosResult = $usuariosQuery->fetchAll();
 
-    $rowTabela = $usuarios->fetchAll();
-    
-    if (empty($rowTabela)){
-        echo "<script>
-        alert('Usuario e/ou senha invalidos!!!');
-        window.location.href='login.php';
-        </script>";
-    } else {
-        $sessao = $rowTabela[0];
-        
+$empresasQuery = $pdo->prepare('SELECT * FROM empresas WHERE email = :email AND senha = :senha');
+$empresasQuery->execute(array(':email' => $email, ':senha' => $senha));
+$empresasResult = $empresasQuery->fetchAll();
 
-        if(!isset($_SESSION)) {
+if (empty($usuariosResult) && empty($empresasResult)) {
+    echo "<script>
+    alert('Usuário e/ou senha inválidos!');
+    window.location.href='login.php';
+    </script>";
+} else {
+    if (!isset($_SESSION)) {
         session_start();
-        }
-        $_SESSION['id_usuario'] = $sessao['id_usuario'];
-        $_SESSION['email'] = $sessao['email'];
-        $_SESSION['endereco'] = $sessao['endereco'];
+    }
 
-        
-    
-        header("Location: catalogo_luan.php");
-        }
-    
-        $empresas = $pdo->prepare('SELECT * FROM empresas where email=:email
-        AND senha=:senha');
-        $empresas->execute(array(':email'=>$email,':senha'=>$senha));
-    
-        $rowTabela = $empresas->fetchAll();
-        
-        if (empty($rowTabela)){
-            echo "<script>
-            alert('Usuario e/ou senha invalidos!!!');
-            window.location.href='login.php';
-            </script>";
-        } else {
-            $sessao = $rowTabela[0];
-    
-            if(!isset($_SESSION)) {
-            session_start();
-            }
-            $_SESSION['id_empresa'] = $sessao['id_empresa'];
-            $_SESSION['email'] = $sessao['email'];
-        
-            header("Location: tela_empresa.php");
-            }
-    
+    if (!empty($usuariosResult)) {
+        $usuario = $usuariosResult[0];
+        $_SESSION['id_usuario'] = $usuario['id_usuario'];
+        $_SESSION['endereco'] = $usuario['endereco'];
+        $_SESSION['email'] = $usuario['email'];
+    } elseif (!empty($empresasResult)) {
+        $empresa = $empresasResult[0];
+        $_SESSION['id_empresa'] = $empresa['id_empresa'];
+        $_SESSION['email'] = $empresa['email'];
+    }
+
+    header("Location: catalogo_luan.php");
+}
 ?>
