@@ -4,33 +4,64 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Cadastro de Usuários</title>
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 
 <body>
     <div class="container">
-        <h1 style="text-align:center;">Cadastro de Usuários</h1>
-        <br>
-        <form action="" method="post" id="formulario">
-            <label for="">Nome:</label>
-            <input type="text" name="nome_usuario" id="" class="">
+        <div class="form-image">
+            <img src="IMAGENS/ICONE-LOGO2.png" alt="">
+        </div>
+        <div class="form">
+            <form action="" method="post" id="formulario">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastro de Usuários</h1>
+                    </div>
+                </div>
 
-            <label for="">CPF:</label>
-            <input type="text" name="cpf" id="cpf" maxlength="14" class="">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome_usuario">Nome</label>
+                        <input id="nome_usuario" type="text" name="nome_usuario" placeholder="Digite seu nome" required>
+                    </div>
 
-            <label for="">Email:</label>
-            <input type="email" name="email" id="" class="">
+                    <div class="input-box">
+                        <label for="cpf">CPF</label>
+                        <input id="cpf" type="text" name="cpf" maxlength="14" placeholder="Digite seu CPF" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="endereco">Endereço</label>
+                        <input id="endereco" type="text" name="endereco" placeholder="Digite seu endereço" required>
+                    </div>
 
-            <label for="">Senha:</label>
-            <input type="password" name="senha_hash" id="" class="">
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="Digite seu email" required>
+                    </div>
 
-            <br>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
 
-            <input type="submit" class="btn btn-success" value="CADASTRAR USUÁRIO">
-        </form>
-        <div id="resultado"></div>
+                <div class="continue-button">
+                    <br>
+                    <input type="submit" class="btn-cadastrar" value="CONTINUAR">
+                </div>
+                <div>
+                    <br><br>
+                    <p>Já possui uma conta? <a href="login.php" class="link-entrar">Entrar</a></p>
+                </div>
+            </form>
+            <div id="resultado"></div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    
     <script>
         // Função para formatar o CPF com pontos e traço
         function formatarCPF(cpf) {
