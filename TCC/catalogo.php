@@ -3,34 +3,7 @@
     if ($includeNavbar) {
         include("navbar.php"); // Inclui a navbar
     }
-    ?>
-<html lang="pt-br">
-<head>
-  <link rel="stylesheet" href="catalogo.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                    <form method="GET" action="catalogo.php">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="nome_produto" placeholder="Digite o nome do produto">
-                        <button class="btn btn-primary" type="submit">Buscar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-        </div>
-    </div>
-</body>
-</html>
 
-<?php
     include("conn.php");
     // Verifica se o formulário de busca foi enviado
     if (isset($_GET['nome_produto'])) {
@@ -55,3 +28,27 @@
           echo "<p>Nenhum produto encontrado.</p>";
       }
   }  
+?>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" href="catalogo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                    <form method="GET" action="catalogo.php">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="nome_produto" placeholder="Digite o nome do produto">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

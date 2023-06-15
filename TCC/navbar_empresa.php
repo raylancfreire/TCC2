@@ -22,10 +22,10 @@ require("conn.php");
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="catalogo_empresa.php" style="" >Catálogo</a>
+            <a class="nav-link" aria-current="page" href="catalogo_empresa.php" style="margin-right: 70px; border: 1.5px solid black; border-radius: 5px;" >Catálogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pedidos_empresa.php" style="margin-right: 70px; width: 115px; border: 1.5px solid black; border-radius: 5px;">Pedidos</a>
+            <a class="nav-link" href="pedidos.php" style="margin-right: 70px; width: 190px; border: 1.5px solid black; border-radius: 5px;">Meus Pedidos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style= "border: 1.5px solid black; border-radius: 5px;" >
@@ -42,10 +42,20 @@ require("conn.php");
         </ul>
         <div class="container">
           <div class="d-flex justify-content-end ms-auto" style="margin-top: 22px;">
-                <p>Seu contato: </p>
-                <p id="telefone"><?php echo $_SESSION['telefone']; ?></p>
+            <p>Seu endereço: </p>
+              <?php
+              if (isset($_SESSION['id_usuario'])) {
+                  echo $_SESSION['endereco'];
+              } elseif (isset($_SESSION['id_empresa'])) {
+                  echo $_SESSION['telefone'];
+              } else {
+                  echo "Não logado";
+              }
+              ?>
+              <!-- <p id="endereco"><?php echo $_SESSION['endereco']; ?></p> -->
           </div>
         </div>
+
       </div>
     </div>  
   </nav>

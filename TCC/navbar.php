@@ -1,5 +1,6 @@
 <?php
 require("protected_usuario.php");
+
 require("conn.php");
 ?>
 
@@ -42,7 +43,8 @@ require("conn.php");
         </ul>
         <div class="container">
           <div class="d-flex justify-content-end ms-auto" style="margin-top: 22px;">
-                <p id="endereco"><?php echo $_SESSION['endereco']; ?></p>
+            <p>Seu endereço: </p>
+            <p id="endereco"><?php echo $_SESSION['endereco']; ?></p>
           </div>
         </div>
       </div>

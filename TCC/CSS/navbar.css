@@ -41,7 +41,7 @@
   }
   
   .nav-link:hover {
-    color: #2c4acf; /* Cor do texto dos links da navbar ao passar o mouse */
+    color: #5974ec; /* Cor do texto dos links da navbar ao passar o mouse */
     transform: scale(1.1);
     background-color: #7cbad3;
   }
