@@ -53,8 +53,10 @@ if ($includeNavbar) {
             function showPopup(message, styleClass) {
                 var popup = $('<div></div>').addClass('popup').addClass(styleClass);
                 var popupMessage = $('<p></p>').text(message);
+                var userName = $('<p></p>').text(<?php echo json_encode($nome_usuario); ?>);
 
                 popup.append(popupMessage);
+                popup.append(userName);
 
                 $('body').append(popup);
 
